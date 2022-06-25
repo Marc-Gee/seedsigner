@@ -122,7 +122,7 @@ Keybase then continues to periodically check the public proof that this key is s
 
 ### Verifying the Software: Confirm that your zip file is correctly signed 
 Now, you will check that the software you just downloaded for your Seedsigner device was signed by the private key, as paired to the (now proven) public key. :) 
-If the public/Private key pair does calculate a valid match, then we have genuine, signed, seedsigner software, :)
+If the public/Private key pair does calculate a valid match, then you have genuine, signed, seedsigner software! :)
 
 
 
@@ -142,7 +142,7 @@ gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 4673 9B74 B56A D88F 14B0  882E C7EF 7090 0726 0119
 ```
-You can safely ignore this warning. It is essentially telling you to check keybase.io, and you have completed that step alredy.
+You can safely ignore this warning. It is essentially telling you to check who actually owns that key, and you have completed that step already (on keybase.io).
 
 
 ### Verifying the Software: Confirm that your zip file was not intercepted or damaged in transit 
