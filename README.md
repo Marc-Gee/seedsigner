@@ -69,7 +69,7 @@ To build a SeedSigner, you will need:
 * Pi Zero-compatible camera (tested to work with the Aokin / AuviPal 5MP 1080p with OV5647 Sensor)
 
 Notes:
-* You will need to solder the 40 GPIO pins (20 pins per row) to the Raspberry Pi Zero board. If you don't want to solder, purchase "GPIO Hammer Headers" for a solderless experience.
+* You will need to solder the 40 GPIO pins (20 pins per row) to the Raspberry Pi Zero board. If you don't want to solder, purchas "GPIO Hammer Headers" for a solderless experience.
 * Other cameras with the above sensor module should work, but may not fit in the Orange Pill enclosure
 * Choose the Waveshare screen carefully; make sure to purchase the model that has a resolution of 240x240 pixels
 
@@ -80,7 +80,7 @@ The quickest and easiest way to install the software is to download the most rec
 
 After downloading the .zip file, extract the seedsigner .img file, and write it to a MicroSD card (at least 4GB in size or larger). Then install the MicroSD in the assembled hardware and off you go. If your goal is a more trustless installation, you can follow the [manual installation instructions](docs/manual_installation.md).
 
-## Authenticating Your Software (optional, but recommended!)
+## Verifying Your Software (optional, but recommended!)
 You can verify the data integrity and authenticity of the software with as little as three commands. This process assumes that you know [how to navigate on a terminal](https://terminalcheatsheet.com/guides/navigate-terminal) and have navigated to the folder where you have these three relevant files present: (This will most likely be your Downloads folder.)
 
 
@@ -106,22 +106,23 @@ Now open this website [Keybase.io/seedsigner](https://www.keybase.io/SeedSigner)
 
 ![SS - Keybase PubKey Verification via visual fingerprint matching3-50pct](https://user-images.githubusercontent.com/91296549/174390488-28f3e5af-dfe7-47d7-b69c-54971a00db17.jpg)
 
-These numeric ID's are known as the Key's *fingerprint*, and you want to make sure that the 2 fingerprints **do** actually match. (The white spaces doesnt matter, its there to help readability.) 
+These numeric ID's are known as the Key's *fingerprint*, and you want to make sure that the 2 fingerprints **do** actually match. (The white spaces do not matter,  they there to help human readability.) 
 
-TLDR; - If the 2 fingerprint nunbers DO match exactly, then the key that you just imported is all good. It came from the SeedSinger Project's humans.
+TLDR; - If the 2 fingerprint nunbers match exactly, then the Public key that you just imported did genuinely come from the SeedSinger Project, and you all good!
 
 <details><summary>What do the 2 matching fingerprints prove? What does it *actually* mean? </summary> 
 
 Well, the Keybase.io website has a unique ability to *cryptographically* confirm that the public key specified is *actually from the same people* who manage all of Seedsigner's online presence! 
 
-Keybase.io does this via "social proofs" by making the Seedsigner project's [human] leaders do some specific tasks online, to prove that *they are who they say they are.* (Much like how  Satoshi could prove that they are __real__ Satoshi, by moving a single bitcoin from the known Satoshi wallet.) 
+Keybase.io does this by requesting some "social proofs" of the Seedsigner project's [human] leaders. By completing these specific tasks online, the humans prove *they are who they say they are*, online. 
+(Much like how  Satoshi could prove that they are __real__ Satoshi, by moving a single bitcoin from the known Satoshi wallet.) 
 Keybase's magic is achieved by asking the Seedsigner Project's leaders to announce their ownership of their public key in all of their online channels, and then prove cryptographically that it was really done. This proof is done across (2 or more) of their known online or social media channels,  eg the project website (seedsigner.com), their Twitter account (@seedsigner) and their GitHub account (github.com/seedsigner). Keybase will then confirm, -cryptographically-, that they did in fact manage to do the tasks exactly as instructed, and hence it confirms that *they are who they say they are.* 
 Keybase then continues to periodically check the public proof that this key is still from them. 
 </details>
 
 ### Verifying the Software: Confirm that your zip file is correctly signed 
-Now, you will check that the software you just downloaded for installing onto your Seedsigner device was signed by the private key, of that (now proven) public key. :) 
-If the public/Private key pair does calculate a valid match, then we have genuine seedsigner software, unaltered. :)
+Now, you will check that the software you just downloaded for your Seedsigner device was signed by the private key, as paired to the (now proven) public key. :) 
+If the public/Private key pair does calculate a valid match, then we have genuine, signed, seedsigner software, :)
 
 
 
