@@ -92,17 +92,17 @@ You can verify the data integrity and authenticity of the software with as littl
 
 This process also assumes you are running the commands from a system where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed and working.
 
-### Importing the Seedsigner Projects' Public Key, and proving it is genuine.
-First you will add/update the *public key* of the SeedSigner project into your keychain. The command below will fetch our public key from a popular online keyserver called *Keybase.io* , and once the Key is imported successfully, we will visually compare its properties to that website.
+### Importing the Seedsigner Projects' Public Key, and also proving it is genuine.
+First you will add/update the *public key* of the SeedSigner project into your keychain. The command below will fetch our public key from a popular online keyserver called *Keybase.io*. After the Key is imported successfully, we will visually compare its properties to some websites.
 ```
 gpg --fetch-keys https://keybase.io/SeedSigner/pgp_keys.asc
 ```
-Once the command completes successfully, it will display a numeric ID, as circled red in the example below. We will use it in the next step.
+Once the command completes successfully, it will display a numeric ID, as circled red in the example below. We will use that in the next step.
 
 ![SS - Keybase PubKey import with Fingerprint shown (New import or update of the key)](https://user-images.githubusercontent.com/91296549/174248861-7961c038-1fbf-47a1-a110-146cb218b1c8.jpg)
 
-You should now compare the numeric ID  which your computer just provided you, to what is displayed on this website 
-[Keybase.io/seedsigner](https://www.keybase.io/SeedSigner)
+Now open this website [Keybase.io/seedsigner](https://www.keybase.io/SeedSigner) and compare the number that displayed on there, to the numeric ID which your computer just provided you.
+
 
 ![SS - Keybase PubKey Verification via visual fingerprint matching3-50pct](https://user-images.githubusercontent.com/91296549/174390488-28f3e5af-dfe7-47d7-b69c-54971a00db17.jpg)
 
@@ -119,8 +119,8 @@ Keybase's magic is achieved by asking the Seedsigner Project's leaders to announ
 Keybase then continues to periodically check the public proof that this key is still from them. 
 </details>
 
-### Verifying Your Software was not intercepted/damaged (optional, but recommended!)
-Now we will check that the software you just downloaded for installing onto your Seedsigner device was signed by the private key, of that (now proven) public key. :) 
+### Verifying the Software: Confirm that your zip file is correctly signed 
+Now, you will check that the software you just downloaded for installing onto your Seedsigner device was signed by the private key, of that (now proven) public key. :) 
 If the public/Private key pair does calculate a valid match, then we have genuine seedsigner software, unaltered. :)
 
 
@@ -141,11 +141,10 @@ gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 4673 9B74 B56A D88F 14B0  882E C7EF 7090 0726 0119
 ```
-You can safely ignore it.
-Alternatively you can check https://keybase.io/seedsigner/ for more information about the issuer of the key.
+You can safely ignore this warning. It is essentially telling you to check keybase.io, and you have completed that step alredy.
 
-The previous command validates that aforementioned small text file was signed using the private key that matches the published public key associated with the project (an early timestamped record of this public/private key's creation can be found in this [tweet](https://twitter.com/SeedSigner/status/1389617642286329856?s=20)).
 
+### Verifying the Software: Confirm that your zip file was not intercepted or damaged in transit 
 The last step is to make sure the .zip file that you've downloaded, and that contains the released software, is a perfect match to the software that was published by the holder of the private key in the last step. The command for this step is:
 ```
 shasum -a 256 -c seedsigner_0_*_*.img.zip.sha256
