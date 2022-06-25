@@ -80,7 +80,7 @@ The quickest and easiest way to install the software is to download the most rec
 
 After downloading the .zip file, extract the seedsigner .img file, and write it to a MicroSD card (at least 4GB in size or larger). Then install the MicroSD in the assembled hardware and off you go. If your goal is a more trustless installation, you can follow the [manual installation instructions](docs/manual_installation.md).
 
-## Verifying Your Software (optional, but recommended!)
+## Authenticating Your Software (optional, but recommended!)
 You can verify the data integrity and authenticity of the software with as little as three commands. This process assumes that you know [how to navigate on a terminal](https://terminalcheatsheet.com/guides/navigate-terminal) and have navigated to the folder where you have these three relevant files present: (This will most likely be your Downloads folder.)
 
 
@@ -92,32 +92,38 @@ You can verify the data integrity and authenticity of the software with as littl
 
 This process also assumes you are running the commands from a system where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed and working.
 
+### Importing the Seedsigner Projects' Public Key, and proving it is genuine.
 First you will add/update the *public key* of the SeedSigner project into your keychain. The command below will fetch our public key from a popular online keyserver called *Keybase.io* , and once the Key is imported successfully, we will visually compare its properties to that website.
 ```
 gpg --fetch-keys https://keybase.io/SeedSigner/pgp_keys.asc
 ```
 Once the command completes successfully, it will display a numeric ID, as circled red in the example below. We will use it in the next step.
+
 ![SS - Keybase PubKey import with Fingerprint shown (New import or update of the key)](https://user-images.githubusercontent.com/91296549/174248861-7961c038-1fbf-47a1-a110-146cb218b1c8.jpg)
 
 You should now compare the numeric ID  which your computer just provided you, to what is displayed on this website 
 [Keybase.io/seedsigner](https://www.keybase.io/SeedSigner)
 
-These numeric ID's are known as the Key's *fingerprint*, so please make sure that the fingerprints **do** match. (The white spaces doesnt matter, its there to help readability.) 
-
 ![SS - Keybase PubKey Verification via visual fingerprint matching3-50pct](https://user-images.githubusercontent.com/91296549/174390488-28f3e5af-dfe7-47d7-b69c-54971a00db17.jpg)
 
-TLDR; - If the fingerprints match, then the key that you just imported is from SeedSinger.com
+These numeric ID's are known as the Key's *fingerprint*, and you want to make sure that the 2 fingerprints **do** actually match. (The white spaces doesnt matter, its there to help readability.) 
 
-But what does it *actually* mean if the 2 fingerprints do match?  Well, the Keybase.io website has a unique ability to *cryptographically* confirm that the public  key they specified is *actually from the same people* who manage all of Seedsigner's online presence! 
+TLDR; - If the 2 fingerprint nunbers DO match exactly, then the key that you just imported is all good. It came from the SeedSinger Project's humans.
 
-Keybase does this by making the Seedsigner project's [human] leaders do specific things online, to prove that they are who they say they are. (Much like Satoshi could prove that they are __really__ Satoshi, by moving a single bitcoin from the known Satoshi wallet.) 
-Keybase's magic is achieved by asking the Seedsigner Project's leaders to announce their ownership of a *specific* public key in all of their online channels, and then have them prove it (cryptographically, of course:)). This proof is done across their known online channels, like the project website (seedsigner.com), *and* their Twitter account (@seedsigner), *and* their GitHub account (github.com/seedsigner), amongst other tasks. Keybase will then confirm, cryptographically, that they did in fact manage to do the task, and hence they are who they say they are. Keybase is then the public proof that this key is them, and its the only key for them. 
+<details><summary>What do the 2 matching fingerprints prove? What does it *actually* mean? </summary> 
 
+Well, the Keybase.io website has a unique ability to *cryptographically* confirm that the public key specified is *actually from the same people* who manage all of Seedsigner's online presence! 
 
-Next we will check that the software we just downloaded for installing onto our Seedsigner device was signed by the private key, of that (now proven) public key. :) 
+Keybase.io does this via "social proofs" by making the Seedsigner project's [human] leaders do some specific tasks online, to prove that *they are who they say they are.* (Much like how  Satoshi could prove that they are __real__ Satoshi, by moving a single bitcoin from the known Satoshi wallet.) 
+Keybase's magic is achieved by asking the Seedsigner Project's leaders to announce their ownership of their public key in all of their online channels, and then prove cryptographically that it was really done. This proof is done across (2 or more) of their known online or social media channels,  eg the project website (seedsigner.com), their Twitter account (@seedsigner) and their GitHub account (github.com/seedsigner). Keybase will then confirm, -cryptographically-, that they did in fact manage to do the tasks exactly as instructed, and hence it confirms that *they are who they say they are.* 
+Keybase then continues to periodically check the public proof that this key is still from them. 
+</details>
+
+### Verifying Your Software was not intercepted/damaged (optional, but recommended!)
+Now we will check that the software you just downloaded for installing onto your Seedsigner device was signed by the private key, of that (now proven) public key. :) 
 If the public/Private key pair does calculate a valid match, then we have genuine seedsigner software, unaltered. :)
 
-***Draft changes to be continued from here down***
+
 
 Now you can verify the authenticity of the small text file containing the release's SHA256 hash with the command:
 ```
