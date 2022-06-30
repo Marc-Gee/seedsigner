@@ -120,13 +120,13 @@ Keybase's magic is achieved by asking the Seedsigner Project's leaders to announ
 Keybase then continues to periodically check the public proof that this key is still from them. 
 </details>
 
-### Verifying the Software: Confirm that your zip file is correctly signed 
-Now, you will check that the software you just downloaded for your Seedsigner device was signed by the private key, as paired to the (now proven) public key. :) 
+### Verifying the softwares's digital ***signature***: 
+This step confirms that your zip file is genuine and was signed by the correct private key, paired to the (now proven) public key. :) 
 If the public/Private key pair does calculate a valid match, then you have genuine, signed, seedsigner software! :)
 
 
 
-Now you can verify the authenticity of the small text file containing the release's SHA256 hash with the command:
+To do this, run this command which will verify the authenticity of the .sig Signature file containing the release's SHA256 hash:
 ```
 gpg --verify seedsigner_0_*_*.img.zip.sha256.sig
 ```
@@ -145,7 +145,7 @@ Primary key fingerprint: 4673 9B74 B56A D88F 14B0  882E C7EF 7090 0726 0119
 You can safely ignore this warning. It is essentially telling you to check who actually owns that key, and you have completed that step already (on keybase.io).
 
 
-### Verifying the Software: Confirm that your zip file was not intercepted or damaged in transit 
+### Verifying the software's ***Checksum***: this step confirms that your zip file was not intercepted or damaged in transit 
 The last step is to make sure the .zip file that you've downloaded, and that contains the released software, is a perfect match to the software that was published by the holder of the private key in the last step. The command for this step is:
 ```
 shasum -a 256 -c seedsigner_0_*_*.img.zip.sha256
