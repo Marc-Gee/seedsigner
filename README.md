@@ -88,11 +88,11 @@ You can verify the data integrity and authenticity of the software with as littl
 * seedsigner_0_5_x.img.zip.sha256 (from the software release)
 * seedsigner_0_5_x.img.zip.sha256.sig (from the software release)
 
-**Note:** The specific names of the 3 files might not match the above examples exactly, but their naming format will be the same.
+**Note:** The version numbers of the 3 files might not match the above examples, but the naming format will be the same.
 
-This process also assumes you are running the commands from a system where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed and working.
+This process also assumes you are running the commands from a computer where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed and working.
 
-### Importing the Seedsigner Projects' Public Key, and also proving it is genuine.
+### Importing the Seedsigner Projects' Public Key, and then proving it is genuine .
 First you will add/update the *public key* of the SeedSigner project into your keychain. The command below will fetch our public key from a popular online keyserver called *Keybase.io*. After the Key is imported successfully, we will visually compare its properties to some websites.
 ```
 gpg --fetch-keys https://keybase.io/SeedSigner/pgp_keys.asc
@@ -106,9 +106,9 @@ Now open this website [Keybase.io/seedsigner](https://www.keybase.io/SeedSigner)
 
 ![SS - Keybase PubKey Verification via visual fingerprint matching3-50pct](https://user-images.githubusercontent.com/91296549/174390488-28f3e5af-dfe7-47d7-b69c-54971a00db17.jpg)
 
-These numeric ID's are known as the Key's *fingerprint*, and you want to make sure that the 2 fingerprints **do** actually match. (The white spaces do not matter,  they there to help human readability.) 
+These numeric IDs are known as the keys *fingerprint*, and you want to make sure that the 2 fingerprints match each other exactly. You can disregard the white spaces, which are just there to help readability. 
 
-TLDR; - If the 2 fingerprint nunbers match exactly, then the Public key that you just imported did genuinely come from the SeedSinger Project, and you all good!
+TLDR; - If the 2 fingerprints are an exact match, then this means that the public key that you have just imported truly did come from the SeedSinger Project, and you have completed this step successfully!
 
 <details><summary>What do the 2 matching fingerprints prove? What does it *actually* mean? </summary> 
 
@@ -121,7 +121,7 @@ Keybase then continues to periodically check the public proof that this key is s
 </details>
 
 ### Verifying the softwares's digital ***signature***: 
-This step confirms that your zip file is genuine and was signed by the correct private key, paired to the (now proven) public key. :) 
+This next step utilizes the public key you just confirmed, to verify that the signature file you downloaded (the sha256.sig file) was really signed by Seedsigners private key. this is done  paired to the (now proven) public key. :) 
 If the public/Private key pair does calculate a valid match, then you have genuine, signed, seedsigner software! :)
 
 
