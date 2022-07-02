@@ -160,17 +160,17 @@ gpg:          There is no indication that the signature belongs to the owner.
 The last line will display a key fingerprint. you must now confirm that this fingerprint matches the fingerprint you found on Keybase.io/Seedsigner.   
 
 **Step Two:**  Run the *shasum* command :   
-Linux and OSX
+**On Linux or OSX**
 ```
 shasum -a 256 -c seedsigner_0_*_*.img.zip.sha256
 ```
 
-Windows
+**Windows**
 ```
 CertUtil -hashfile  seedsigner_0_*_*.img.zip SHA256 | findstr /v "hash"
 ```
 
-The reponse must include the text **seedsigner_[VersionNumber].img.zip OK** like this:   
+The reponse must include the text **seedsigner_[VersionNumber].img.zip OK**, like this:   
 ```
 seedsigner_0_5_x.img.zip: OK
 ```
