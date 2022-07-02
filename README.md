@@ -92,7 +92,7 @@ You can verify the data integrity and authenticity of the software with as littl
 
 This process also assumes you are running the commands from a computer where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed and working.
 
-### Importing the Seedsigner Projects' Public Key, and then proving it is genuine .
+### Importing the Seedsigner Projects' public key, and confirming that it is their genuine key.
 First you will add/update the *public key* of the SeedSigner project into your keychain. The command below will fetch our public key from a popular online keyserver called *Keybase.io*. After the Key is imported successfully, we will visually compare its properties to some websites.
 ```
 gpg --fetch-keys https://keybase.io/SeedSigner/pgp_keys.asc
@@ -120,42 +120,61 @@ Keybase's magic is achieved by asking the Seedsigner Project's leaders to announ
 Keybase then continues to periodically check the public proof that this key is still from them. 
 </details>
 
-### Verifying the softwares's digital ***signature***: 
-This next step utilizes the public key you just confirmed, to verify that the signature file you downloaded (the sha256.sig file) was really signed by Seedsigners private key. this is done  paired to the (now proven) public key. :) 
-If the public/Private key pair does calculate a valid match, then you have genuine, signed, seedsigner software! :)
+### Verifying that your download is genuine  
+The next steps will show you how to confirm that your downloaded .zip file is the genuine and unaltered SeedSigner software.  
+You will achieve this by comparing the *hash* value of *your* zip file to the *original* zip file’s hash value, and check the public/private key pair cryptographic signature. 
+
+The two steps are:  
+1.	Determine *who* signed the sha256.sig file which you downloaded earlier.  
+To establish this, the GPG *verify* command will utilized.  
+A *verify* command will loop through all the public keys on your computer and identify *which* key pair signed your sha256.sig file, by [cryptographically] comparing it to the un-signed, plaintext version of the same file (.sha256).   
+When the command displays a resulting fingerprint, you will confirm that the fingerprint matches the fingerprint you found on Keybase.io/Seedsigner.  
+2.	Lastly, you will use the *shasum* command to generate (and compare) the hash value of your *downloaded* Zip file to the hash value of the *original* Zip file (as noted inside of the .SHA256 plaintext file).  
+If the 2 hashes match, then your downloaded zip file is **safe for use**, because it is genuinely from the Seedsigner project team and is also confirmed as unaltered!  
 
 
 
-To do this, run this command which will verify the authenticity of the .sig Signature file containing the release's SHA256 hash:
+**Step one:** - run the verify command :  
 ```
 gpg --verify seedsigner_0_*_*.img.zip.sha256.sig
 ```
-**Note:** The `*`s in the command above allow the terminal to auto-populate the command with the version number you have in the folder you are in. It should be copied and pasted as is.
+**Note:** The `*`s in the command will auto-match to the version number in your current folder. It should be copied and pasted as is.
 
-The reponse to this command should include the text:
+
+The reponse **must** include the phrase **"Good signature"**, like this.   
+``
+Good signature from "seedsigner <btc.hardware.solutions@gmail.com>" [unknown]  
+``  
+If it displays "BAD signature", then stop immediately and contact us for assistance.  
+
+This warning message however, is completely normal and is expected.
 ```
-Good signature from "seedsigner <btc.hardware.solutions@gmail.com>" [unknown]
-```
-It might also include the warning message below. 
-```
-gpg: WARNING: This key is not certified with a trusted signature!
+gpg: WARNING: This key is not certified with a trusted signature!  
 gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 4673 9B74 B56A D88F 14B0  882E C7EF 7090 0726 0119
 ```
-You can safely ignore this warning. It is essentially telling you to check who actually owns that key, and you have completed that step already (on keybase.io).
+The last line will display a key fingerprint. you must now confirm that this fingerprint matches the fingerprint you found on Keybase.io/Seedsigner.   
+*you dont have to use a microscope, even a tiny file change will make a massive difference*  
 
-
-### Verifying the software's ***Checksum***: this step confirms that your zip file was not intercepted or damaged in transit 
-The last step is to make sure the .zip file that you've downloaded, and that contains the released software, is a perfect match to the software that was published by the holder of the private key in the last step. The command for this step is:
+**Step Two:**  run the shasum command :   
+Linux and OSX
 ```
 shasum -a 256 -c seedsigner_0_*_*.img.zip.sha256
 ```
-The reponse to this command should include the text:
+
+Windows
 ```
-seedsigner_0_5_x.img.zip: OK
+CertUtil -hashfile  seedsigner_0_*_*.img.zip SHA256 | findstr /v "hash"
 ```
 
-There are other steps you can take to verify the software, including examining the hash value in the .sha256 text file, but this one has been documented here because it seems the simplest for most people to follow. Please recognize that this process can only validate the software to the extent that the entity that first published the key is an honest actor, and assumes the private key has remained uncompromised and is not being used by a malicious actor.
+The reponse to the command should include the text:
+```
+seedsigner_0_5_x.img.zip: **OK**
+```
+
+The **OK** result means that 2 hashes are an exact match, and thus your zip file is ** safe for use**, because it is genuinely from the Seedsigner project team and  also confirmed as unaltered!   
+You can now proceed to load the software onto your SD card.   
+
+Please recognize that this process can only validate the software to the extent that the entity that first published the software is an honest actor, and that the private key has remained uncompromised and is not being used by a malicious actor.
 
 ---------------
 
