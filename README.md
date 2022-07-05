@@ -88,15 +88,15 @@ You can verify the authenticity and data integrity of the software with as littl
 
 
 * seedsigner_0_5_x.img.zip (from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section)
-* seedsigner_0_5_x.img.zip.sha256 (also from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section )
-* seedsigner_0_5_x.img.zip.sha256.sig (also from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section )
+* seedsigner_0_5_x.img.zip.sha256 (also from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section)
+* seedsigner_0_5_x.img.zip.sha256.sig (also from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section)
 
-**Note:** The version numbers of the 3 files might not match the above examples, but the naming format will be the same.
+**Note:** The version numbers of the files might not match the above examples, but the naming format will be the same.
 
 This process also assumes you are running the commands from a computer where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed.
 
 ### Importing the public key of the Seedsigner Project  
-The first command you will run is to  add (or update) the *public key* of the SeedSigner project into your computers *keychain*. The *fetch-keys*  command shown below will fetch the projects public key from a popular online keyserver called *Keybase.io*. After the key is imported successfully, we will visually compare its properties to various websites to confirm it is genuine.
+The first command you will run is to add (or update) the *public key* of the SeedSigner project into your computers *keychain*. The *fetch-keys*  command shown below will fetch the projects public key from a popular online keyserver called *Keybase.io*. After the key is imported successfully, we will visually compare its properties to various websites to confirm it is genuine.
 ```
 gpg --fetch-keys https://keybase.io/SeedSigner/pgp_keys.asc
 ```
