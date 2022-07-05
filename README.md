@@ -46,7 +46,7 @@ If you have specific questions about the project, our [Telegram Group](https://t
 ### Considerations:
 * Built for compatibility with Specter Desktop, Sparrow, and BlueWallet Vaults
 * Device takes up to 60 seconds to boot before menu appears (be patient!)
-* Always test your setup before transfering larger amounts of bitcoin (try testnet first!)
+* Always test your setup before transferring larger amounts of bitcoin (try Testnet first!)
 * Taproot not quite yet supported
 * Slightly rotating the screen clockwise or counter-clockwise should resolve lighting/glare issues
 * If you think SeedSigner adds value to the Bitcoin ecosystem, please help us spread the word! (tweets, pics, videos, etc.)
@@ -64,78 +64,88 @@ If you have specific questions about the project, our [Telegram Group](https://t
 
 To build a SeedSigner, you will need:
 
-* Raspberry Pi Zero (preferably version 1.3 with no WiFi/Bluetooth capability, but any Raspberry Pi 2/3/4 or Zero model will work)
+* Raspberry Pi Zero (preferably version 1.3 with no Wi-Fi/Bluetooth capability, but any Raspberry Pi 2/3/4 or Zero model will work)
 * Waveshare 1.3" 240x240 pxl LCD (correct pixel count is important, more info at https://www.waveshare.com/wiki/1.3inch_LCD_HAT)
 * Pi Zero-compatible camera (tested to work with the Aokin / AuviPal 5MP 1080p with OV5647 Sensor)
 
 Notes:
-* You will need to solder the 40 GPIO pins (20 pins per row) to the Raspberry Pi Zero board. If you don't want to solder, purchas "GPIO Hammer Headers" for a solderless experience.
+* You will need to solder the 40 GPIO pins (20 pins per row) to the Raspberry Pi Zero board. If you don't want to solder, purchase the "GPIO Hammer Headers" for a solderless experience.
 * Other cameras with the above sensor module should work, but may not fit in the Orange Pill enclosure
 * Choose the Waveshare screen carefully; make sure to purchase the model that has a resolution of 240x240 pixels
 
 ---------------
 
 # Software Installation
-The quickest and easiest way to install the software is to download the most recent "seedsigner_X_X_X.zip" file from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section of this repository.
+The quickest and easiest way to install the software is to:  
+- [Download](https://github.com/SeedSigner/seedsigner/releases) the most recent "seedsigner_X_X_X.zip" file from the software releases section of this repository.
 
-After downloading the .zip file, we recommend that you verify its integrity using the steps below.   
-Next, unzip or extract the seedsigner.img file, and write it out to a MicroSD card (minimum 4GB size).  Now insert the MicroSD into the assembled hardware and turn on the power!  
+- Verify the digital signature of the software download to ensure that it is genuine and unchanged (optional, but recommended).
+- Extract the SeedSigner.img file, and write it onto your MicroSD card (minimum 4GB in size).
+- Insert the MicroSD into the assembled hardware and turn on the power!    
 
-If you require is a more trustless installation, you can follow the [manual installation instructions](docs/manual_installation.md).
+Note: If you require a more trustless installation by building from the  source code, you should follow these [manual installation instructions](docs/manual_installation.md).
+<br>
+<br>
 
-## Verifying your download files (optional, but recommended!)
-You can verify the authenticity and data integrity of the software with as little as 3 commands. This process assumes that you know [how to navigate on a terminal](https://terminalcheatsheet.com/guides/navigate-terminal) and have navigated to the folder where you have these  files present: (This will most likely be your Downloads folder.)
+# Verifying your downloaded files (optional, but recommended!)
+You can quickly and easily verify that your downloaded software is both genuine and also unaltered, by following these instructions 
 
+The 3 files you will need are all available [here](https://github.com/SeedSigner/seedsigner/releases), under the *Assets* heading.
+1. seedsigner_0_5_x.img.zip 
+2. seedsigner_0_5_x.img.zip.sha256 
+3. seedsigner_0_5_x.img.zip.sha256.sig 
 
-* seedsigner_0_5_x.img.zip (from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section)
-* seedsigner_0_5_x.img.zip.sha256 (also from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section)
-* seedsigner_0_5_x.img.zip.sha256.sig (also from the [software releases](https://github.com/SeedSigner/seedsigner/releases) section)
-
-**Note:** The version numbers of the files might not match the above examples, but the naming format will be the same.
-
-This process also assumes you are running the commands from a computer where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed.
-
-### Importing the public key of the Seedsigner Project  
-The first command you will run is to add (or update) the *public key* of the SeedSigner project into your computers *keychain*. The *fetch-keys*  command shown below will fetch the projects public key from a popular online keyserver called *Keybase.io*. After the key is imported successfully, we will visually compare its properties to various websites to confirm it is genuine.
+**Note:** The version numbers of the files might not match the above examples, but the naming format will be the same.  
+This process assumes you are running the commands from a computer where both [GPG](https://gnupg.org/download/index.html) and [shasum](https://command-not-found.com/shasum) are already installed, that you know [how to navigate on a terminal](https://terminalcheatsheet.com/guides/navigate-terminal) and are already positioned in the same folder where you have saved the 3 files.   
+(Which will most likely be your Downloads folder.)
+<br>
+<br>
+## Importing the public key of the SeedSigner Project  
+The first step is to import the *public key* of the SeedSigner project into your computers own *keychain*. The *fetch-keys*  command shown below will fetch the SeedSigner projects public key from a popular online keyserver called *Keybase.io*.  After the key is imported successfully, we will visually compare its properties to various websites to confirm it is genuine.   
+Run this command:
 ```
 gpg --fetch-keys https://keybase.io/SeedSigner/pgp_keys.asc
 ```
-When  the command completes successfully, it will display a numeric ID, as circled red in the example below. We will use that numeric ID in the next step.
+When  the command completes successfully, it will display a numeric ID, as circled in red in the example below. We will use that numeric ID in the next step.
 
 ![SS - Keybase PubKey import with Fingerprint shown (New import or update of the key)](https://user-images.githubusercontent.com/91296549/174248861-7961c038-1fbf-47a1-a110-146cb218b1c8.jpg)  
    
-Now open the website [Keybase.io/seedsigner](https://www.keybase.io/SeedSigner) 
+Now open the website <a href="https://www.Keybase.io/SeedSigner" target="_blank">KeyBase.io/SeedSigner</a> (it opens in a separate tab or window)
 
 ![SS - Keybase PubKey Verification via visual fingerprint matching3-50pct](https://user-images.githubusercontent.com/91296549/174390488-28f3e5af-dfe7-47d7-b69c-54971a00db17.jpg)
 
-These numeric IDs are known as the keys *fingerprint*, and now you will now compare them.Carefully check that the *imported* fingerprint and the *website* fingerprint match exactly. You should ignore the white spaces, which are just there to help readability. 
+These numeric IDs are known as the keys *fingerprint*, and now you will now visually compare them to make sure that the *imported* fingerprint and the *website* fingerprint match exactly. You should ignore the white spaces, which are just there to help readability. 
 
-If the 2 fingerprints are an exact match, then this means that the public key that you have just imported, does genuinely belong to the SeedSinger project. So you now know *who* the public key belongs to.  
-In the next step you will make certain that this *same* key signed your downloaded files.  
+If the 2 fingerprints are an exact match, then this means that the public key that you have just imported, does genuinely belong to the SeedSigner project.  You have now confirmed know *who* the public key belongs to!  
+In the next step, you will make certain that this *same* key was used to sign your downloaded files.  
 
 <details><summary> Expand this section if you are curious about what the 2 matching fingerprints prove and what they do.</summary>     
 
-Well, the Keybase.io website has a unique ability to *cryptographically* confirm that the public key specified is *actually from the same people* who manage all of Seedsigner's online presence! 
+The Keybase.io website has a unique ability to *cryptographically* confirm that the public key specified is *actually from the same people* who manage all of Seedsigner's online presence! 
 
-Keybase.io does this by requesting some "social proofs" of the Seedsigner project's [human] leaders. By completing these specific tasks online, the humans prove *they are who they say they are*, online. 
+Keybase.io does this by requesting some "social proofs" of the Seedsigner project's [human] leaders. By completing these specific tasks online, the humans prove *that they are who they say they are*, online. 
 (Much like how  Satoshi could prove that they are __real__ Satoshi, by moving a single bitcoin from the known Satoshi wallet.) 
-Keybase's magic is achieved by asking the Seedsigner Project's leaders to announce their ownership of their public key in all of their online channels, and then prove cryptographically that it was really done. This proof is done across (2 or more) of their known online or social media channels,  eg the project website (seedsigner.com), their Twitter account (@seedsigner) and their GitHub account (github.com/seedsigner). Keybase will then confirm, -cryptographically-, that they did in fact manage to do the tasks exactly as instructed, and hence it confirms that *they are who they say they are.* 
+<br>
+Keybase's magic is achieved by asking the Seedsigner Project's leaders to announce their ownership of their public key in all of their online channels, and then prove cryptographically that it was really done. This proof is done across (2 or more) of their known online or social media channels,  eg the project website (seedsigner.com), their Twitter account (@seedsigner) and their GitHub account (github.com/seedsigner). Keybase will then confirm, -cryptographically-, that they did in fact manage to do the tasks exactly as instructed, and hence it confirms that *they are who they say they are.*  
 Keybase then continues to periodically check the public proof that this key is still from them.
 </details>  
 
-  space       
-  space       
-### Verifying that your download is genuine  
+<br> 
+
+## Verifying that your download is genuine 
+ 
 The next steps will show you how to confirm that your downloaded .zip file is the genuine and unaltered SeedSigner software.  
 You will achieve this by electronically comparing the *hash* value of *your* zip file to the *original* zip file’s hash value, and also use  the public/private key pair cryptographic signatures. 
 
 The two steps are:  
 1.	Determine *who* signed the sha256.sig file which you downloaded earlier.  
-To establish this, the GPG *verify* command will utilized.  
-A *verify* command will loop through all the public keys on your computer and identify *which* key pair signed your sha256.sig file, by [cryptographically] comparing it to the un-signed, plaintext version of the same file (.sha256).   
-When the command finds a resulting fingerprint, you will visually check  that this fingerprint also matches the same fingerprint you found on Keybase.io/Seedsigner.  
+To establish this, the GPG *verify* command will used.  
+The *verify* command loops through all the public keys on your computer and identifies *which* key pair signed your sha256.sig file, by comparing it (cryptographically) to its unsigned equivalent (your .sha256 file).  
+The verify command outputs the all-important *signers* fingerprint, which is what you will visually compare to the fingerprint you previously found on Keybase.io/SeedSigner.  
+That step completes the three cross-checks on this fingerprint!  
+
 2.	Lastly, you will use the *shasum* command to generate (and compare) the hash value of your *downloaded* Zip file to the hash value of the *original* Zip file (as noted inside of the .SHA256 plaintext file).  
-If the 2 hashes match, then your downloaded zip file is **safe for use**, because it is genuinely from the Seedsigner project team and is also confirmed as unaltered!  
+If the 2 *hashes* match, then your downloaded zip file is **safe for use**, because it is now confirmed as the one that was signed the SeedSigner project team and is also confirmed as unaltered (in transit and at rest)!  
 
 
 
@@ -143,23 +153,30 @@ If the 2 hashes match, then your downloaded zip file is **safe for use**, becaus
 ```
 gpg --verify seedsigner_0_*_*.img.zip.sha256.sig
 ```
-**Note:** The `*`s in the command will auto-match to the version number in your current folder. It should be copied and pasted as is.
+**Note:** The `*`s in the command will auto-match to the version number in your current folder. It should be copied and pasted as-is.
 
 
-The reponse **must** include the phrase **"Good signature"**, like this: 
-```
-Good signature from "seedsigner <btc.hardware.solutions@gmail.com>" [unknown]  
-``` 
-If it displays "BAD signature", then you must stop here immediately and contact us for assistance.  
+The response **must** include the phrase **"Good signature"**, like this: 
 
-This warning message however, is normal and is expected.
-```
-gpg: WARNING: This key is not certified with a trusted signature!  
-gpg:          There is no indication that the signature belongs to the owner.
-```
-The last line will display a key fingerprint. you must now confirm that this fingerprint matches the fingerprint you found on Keybase.io/Seedsigner.   
+>Good signature from "seedsigner <btc.hardware.solutions @ gmail.com>" [unknown]  
 
-**Step Two:**  Run the *shasum* command :   
+The email address is just informational. *Only* the matching fingerprints count.   
+<br>
+If the response displays "BAD signature", then you must stop here immediately and contact us for assistance.  
+
+This warning message below, is normal however.
+
+> gpg: WARNING: This key is not certified with a trusted signature!  
+> gpg:          There is no indication that the signature belongs to the owner.
+
+The last line will display a key fingerprint, which is the all-important number which you will now visually compare to the one on Keybase.io/SeedSigner.   
+That step completes the three cross-checks on this fingerprint!   
+<br>
+If it does not match exactly, then  stop here immediately and contact us for  assistance.
+<br>
+<br>
+
+**Step Two:**  Run the *shasum* command : <br>
 **On Linux or OSX**
 ```
 shasum -a 256 -c seedsigner_0_*_*.img.zip.sha256
@@ -170,20 +187,27 @@ shasum -a 256 -c seedsigner_0_*_*.img.zip.sha256
 CertUtil -hashfile  seedsigner_0_*_*.img.zip SHA256 | findstr /v "hash"
 ```
 
-The reponse must include the text **seedsigner_[VersionNumber].img.zip OK**, like this:   
+The response must include the text **seedsigner_[VersionNumber].img.zip OK**, like this:   
 ```
 seedsigner_0_5_x.img.zip: OK
 ```
 
-The **OK** result means that 2 hashes are an exact match, and thus your zip file is **safe for use**.  It is has been succcesfully verified as both genuinely produced by the SeedSigner project team themselves and not also not altered in any way.   
-If it does ***not*** show "OK", then immediately stop here and ask for assistance!   
+The **OK** result means that 2 hashes are an exact match, and thus your zip file is **safe for use**.  It is has been successfully verified as both genuinely produced by the SeedSigner project team themselves and also not altered in any way.   
+If the output does **not** show "OK", then immediately stop here and ask for assistance!   
 
-**Well done - your zip file is now confirmed as authentic**!   
-You can now extract the zip file contents, and copy the .img file onto your MicroSD card. We recommend using the Balena Etcher or Pi Imager applications to perform that step.  
-When thats complete, simply insert the MicroSD card into your SeedSigner and apply power.  
+**Verification Succeded!!  - well done, your zip file is now confirmed as authentic**!   
+<br>
+## Write the software to the MicroSD card 
+You can now extract the zip file contents, and write them to your MicroSD card.  
+We recommend using the Balena Etcher or Pi Imager applications to do this. Utilizing  their 'verify after writing' option is **highly recommended** to make sure the file was written out successfully, and avoid any MicroSD writing issues.   
+When that is complete, simply insert the MicroSD card (pin side down) into your SeedSigner and apply electrical power from your usb adapter. It is not recommended to use usb ports from a computer, as this will break the air-gap around your seedsigner.
+
+The seedsigner can take up to 45 seconds to show its opening screen, however you should see the led light on the circuit board inside flickering throughtout the boot-up sequence. 
+<br>
 
 Note: Please recognize that the software verification process can only validate the software to the extent that the entity that published the software is an honest actor, and their private key is not somehow compromised. 
 
+<br> 
 ---------------
 
 # Enclosure Designs
