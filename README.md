@@ -7,7 +7,7 @@
 * [Project Summary](#project-summary)
 * [Shopping List](#shopping-list)
 * [Software Installation](#software-installation)
-  * [Verifying Your Software](#verifying-your-software)
+  * [Verifying the Software](#verifying-the-software)
 * [Enclosure Designs](#enclosure-designs)
 * [SeedQR Printable Templates](#seedqr-printable-templates)
 * [Manual Installation Instructions](#manual-installation-instructions)
@@ -64,20 +64,30 @@ If you have specific questions about the project, our [Telegram Group](https://t
 
 To build a SeedSigner, you will need:
 
-* Raspberry Pi Zero (preferably version 1.3 with no Wi-Fi/Bluetooth capability, but any Raspberry Pi 2/3/4 or Zero model will work)
+* Raspberry Pi Zero (preferably version 1.3 with no WiFi/Bluetooth capability, but any Raspberry Pi 2/3/4 or Zero model will work, Raspberry Pi 1 devices will require a hardware modification to the Waveshare LCD Hat, as per the [instructions here](./docs/legacy_hardware.md))
 * Waveshare 1.3" 240x240 pxl LCD (correct pixel count is important, more info at https://www.waveshare.com/wiki/1.3inch_LCD_HAT)
 * Pi Zero-compatible camera (tested to work with the Aokin / AuviPal 5MP 1080p with OV5647 Sensor)
 
 Notes:
-* You will need to solder the 40 GPIO pins (20 pins per row) to the Raspberry Pi Zero board. If you don't want to solder, purchase the "GPIO Hammer Headers" for a solderless experience.
+* You will need to solder the 40 GPIO pins (20 pins per row) to the Raspberry Pi Zero board. If you don't want to solder, purchase "GPIO Hammer Headers" for a solderless experience.
 * Other cameras with the above sensor module should work, but may not fit in the Orange Pill enclosure
 * Choose the Waveshare screen carefully; make sure to purchase the model that has a resolution of 240x240 pixels
 
 ---------------
 
 # Software Installation
-The quickest and easiest way to install the software is to:  
-- [Download](https://github.com/SeedSigner/seedsigner/releases) the most recent "seedsigner_X_X_X.zip" file from the software releases section of this repository.
+
+## Special Note on Minimizing Trust
+As is the nature of pre-packaged software downloads, downloading and using the prepared SeedSigner release images means implicitly placing trust in the individual preparing those images; in our project the release images are prepared and signed by the eponymous creator of the project, SeedSigner "the person". That individual is additionally the only person in possession of the PGP keys that are used to sign the release images.
+
+However, one of the many advantages of the open source software model is that the need for this kind of trust can be negated by our users' ability to (1) review the project's source code and (2) assemble the operating image necessary to use the software themselves. From our project's inception, instructions to build a SeedSigner operating image (using precisely the same process that is used to create the prepared release images) have been made availabile. We have put a lot of thought and work into making these instructions easy to understand and follow, even for less technical users. These instructions can be found [here](docs/manual_installation.md).
+
+## Downloading the Software
+
+The quickest and easiest way to install the software is to download the most recent "seedsigner_X_X_X.zip" file in the [software releases](https://github.com/SeedSigner/seedsigner/releases) section of this repository.
+
+After downloading the .zip file, extract the seedsigner .img file, and write it to a MicroSD card (at least 4GB in size or larger). Then install the MicroSD in the assembled hardware and off you go.
+More detailed instructions to do these step are below. 
 
 - Verify the digital signature of the software download to ensure that it is genuine and unchanged (optional, but recommended).
 - Extract the SeedSigner.img file, and write it onto your MicroSD card (minimum 4GB in size).
@@ -205,7 +215,7 @@ When that is complete, simply insert the MicroSD card (pin side down) into your 
 The seedsigner can take up to 45 seconds to show its opening screen, however you should see the led light on the circuit board inside flickering throughtout the boot-up sequence. 
 <br>
 
-Note: Please recognize that the software verification process can only validate the software to the extent that the entity that published the software is an honest actor, and their private key is not somehow compromised. 
+There are other steps you can take to verify the software, including examining the hash value in the .sha256 text file, but this one has been documented here because it seems the simplest for most people to follow. Please recognize that this process can only validate the software to the extent that the entity that first published the key is an honest actor, and assumes the private key has remained uncompromised and is not being used by a malicious actor. 
 
 <br> 
 ---------------
