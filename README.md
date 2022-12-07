@@ -86,7 +86,7 @@ However, one of the many advantages of the open source software model is that th
 
 The quickest and easiest way to install the software is to download the most recent "seedsigner_X_X_X.zip" file in the [software releases](https://github.com/SeedSigner/seedsigner/releases) section of this repository.
 
-After downloading the .zip file, extract the seedsigner .img file, and write it to a MicroSD card (at least 4GB in size or larger). Then install the MicroSD in the assembled hardware and off you go.
+After downloading the .zip file, verify it, extract the seedsigner .img file, and write it to a MicroSD card (at least 4GB in size or larger). Then install the MicroSD in the assembled hardware and off you go.
 More detailed instructions to do these step are below. 
 
 - Verify the digital signature of the software download to ensure that it is genuine and unchanged (optional, but recommended).
