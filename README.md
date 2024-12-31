@@ -159,7 +159,7 @@ The result should confirm that 1 key was *either* imported or updated. *Ignore* 
 
 Next, you will run the *verify* command on the signature (.sig) file. (*Verify* must be run from inside the same folder that you downloaded the files into earlier. The `*`'s in this command will auto-fill the version from your current folder, so it should be copied and pasted as-is.)   
 ```
-gpg --verify seedsigner.0.7.*.sha256.txt.sig
+gpg --verify seedsigner.0.8.*.sha256.txt.sig
 ```
 
 When the verify command completes successfully, it should display output like this:
@@ -229,7 +229,7 @@ Now that you have confirmed that you do have the real SeedSigner Project's Publi
 
  **On Linux or OSX:** Run this command
 ```
-shasum -a 256 --ignore-missing --check seedsigner.0.7.*.sha256.txt  
+shasum -a 256 --ignore-missing --check seedsigner.0.8.*.sha256.txt  
 ```
 
 **On Windows (inside Powershell):** Run this command
@@ -241,9 +241,9 @@ On Windows, you must then manually compare the resulting file hash value to the 
 
 Wait up to 30 seconds for the command to complete, and it should display:
 ```
-seedsigner_os.0.7.x.[Your_Pi_Model_For_Example:pi02w].img: OK
+seedsigner_os.0.8.x.[Your_Pi_Model_For_Example:pi02w].img: OK
 ```
-**If you receive the "OK" message** for your **seedsigner_os.0.7.x.[Your_Pi_Model_For_Example:pi02w].img file**, as shown above, then your verification is fully complete!  
+**If you receive the "OK" message** for your **seedsigner_os.0.8.x.[Your_Pi_Model_For_Example:pi02w].img file**, as shown above, then your verification is fully complete!  
 **All of your downloaded files have now been confirmed as both authentic and unaltered!** You can proceed to create/write your MicroSD card😄😄 !!     
 
 If your file result shows "FAILED", then you must stop here immediately. Do not continue. Contact us for assistance at  the Telegram group address above.
