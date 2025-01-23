@@ -241,9 +241,9 @@ On Windows, you must then manually compare the resulting file hash value to the 
 
 Wait up to 30 seconds for the command to complete, and it should display:
 ```
-seedsigner_os.0.8.x.[Your_Pi_Model_For_Example:pi02w].img: OK
+seedsigner_os.0.8.5.[Your_Pi_Model_For_Example:pi02w].img: OK
 ```
-**If you receive the "OK" message** for your **seedsigner_os.0.8.x.[Your_Pi_Model_For_Example:pi02w].img file**, as shown above, then your verification is fully complete!  
+**If you receive the "OK" message** for your **seedsigner_os.0.8.5.[Your_Pi_Model_For_Example:pi02w].img file**, as shown above, then your verification is fully complete!  
 **All of your downloaded files have now been confirmed as both authentic and unaltered!** You can proceed to create/write your MicroSD card😄😄 !!     
 
 If your file result shows "FAILED", then you must stop here immediately. Do not continue. Contact us for assistance at  the Telegram group address above.
