@@ -157,9 +157,9 @@ The result should confirm that 1 key was *either* imported or updated. *Ignore* 
 
 ![SS - Fetchkeys-Keybase PubKey import with Fingerprint shown (New import or update of the key)v3-100pct](https://user-images.githubusercontent.com/91296549/221334414-adc3616c-462e-490e-8492-3dfee367d13a.jpg)  
 
-Next, you will run the *verify* command on the signature (.sig) file. (*Verify* must be run from inside the same folder that you downloaded the files into earlier. The `*`'s in this command will auto-fill the version from your current folder, so it should be copied and pasted as-is.)   
+Next, you will run the *verify* command on the signature (.sig) file. (*Verify* must be run from inside the same folder that you downloaded the files into earlier.)   
 ```
-gpg --verify seedsigner.0.8.*.sha256.txt.sig
+gpg --verify seedsigner.0.8.5.sha256.txt.sig
 ```
 
 When the verify command completes successfully, it should display output like this:
@@ -229,12 +229,12 @@ Now that you have confirmed that you do have the real SeedSigner Project's Publi
 
  **On Linux or OSX:** Run this command
 ```
-shasum -a 256 --ignore-missing --check seedsigner.0.8.*.sha256.txt  
+shasum -a 256 --ignore-missing --check seedsigner.0.8.5.sha256.txt  
 ```
 
 **On Windows (inside Powershell):** Run this command
 ```
-CertUtil -hashfile  seedsigner_os.0.8.0.Insert_Your_Pi_Models_binary_here_For_Example_pi02w.img SHA256 
+CertUtil -hashfile  seedsigner_os.0.8.5.Insert_Your_Pi_Models_binary_here_For_Example_pi02w.img SHA256 
 ```
 On Windows, you must then manually compare the resulting file hash value to the corresponding hash value shown inside the .SHA256 cleartext file.
  <BR>
